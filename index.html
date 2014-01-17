@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app>
+<head>
+  <meta charset="utf-8" />
+  <title>あたらしい肩書き診断</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+  <script src="katagaki.js"></script>
+</head>
+<body ng-controller="KatagakiCtrl">
+<p>あたらしいインターンによる</p>
+<h1>あたらしい肩書き診断</h1>
+<form ng-submit="submit()">
+  <h3>任意の名前を入力してください</h3>
+  <input type="text" name="uname" ng-model="uname" size="30" />
+  <button type="submit">診断する</button>
+</form>
+<h2 ng-show="isResult">{{ uname }}さんのあたらしい肩書きは、『{{ katagaki1 }} {{ katagaki2 }}』　です。</h2>
+</body>
+</html>
