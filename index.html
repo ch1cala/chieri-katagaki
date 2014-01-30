@@ -3,17 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <title>あたらしい肩書き診断</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
   <script src="katagaki.js"></script>
 </head>
-<body ng-controller="KatagakiCtrl">
-<p>あたらしいインターンによる</p>
-<h1>あたらしい肩書き診断</h1>
-<form ng-submit="submit()">
-  <h3>任意の名前を入力してください</h3>
-  <input type="text" name="uname" ng-model="uname" size="30" />
-  <button type="submit">診断する</button>
+<body class="container" ng-controller="KatagakiCtrl">
+
+<div class="page-header">
+  <h1><small>あたらしいインターンによる</small> あたらしい肩書き診断</h1>
+</div>
+
+<form name="katagakiForm" ng-submit="submit()" role="form">
+  <div class="form-group">
+    <label for="name">任意の名前を入力してください</label>
+    <input type="text" class="form-control" id="name" name="uname" ng-model="uname" size="30" required />
+  </div>
+  <button type="submit" class="btn btn-primary">診断する</button>
 </form>
-<h2 ng-show="isResult">{{ uname }}さんのあたらしい肩書きは、『{{ katagaki1 }} {{ katagaki2 }}』　です。</h2>
+
+<div class="jumbotron" ng-show="isResult">
+  <p><strong>{{ uname }}</strong> さんのあたらしい肩書きは</p>
+  <h1>『{{ katagaki1 }} {{ katagaki2 }}』</h1>
+  <p>です。</p>
+
+  <a href="https://twitter.com/share?text={{ uname }}さんのあたらしい肩書は『{{ katagaki1 }} {{ katagaki2 }}』です。" class="twitter-share-button" data-lang="ja">ツイート</a>
+
+</div>
+
 </body>
 </html>
